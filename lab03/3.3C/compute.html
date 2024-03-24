@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compute BMI Web App</title>
+  <link rel="stylesheet" href="../framework/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="app" class="container">
+    <h1>Compute BMI</h1>
+    <div class="form-group">
+      <label for="weight">Enter weight in kilograms:</label>
+      <input type="number" v-model="numWt" id="weight" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="height">Enter height in centimeters:</label>
+      <input type="number" v-model="numHt" id="height" class="form-control">
+    </div>
+    <button type="button" @click="calculateBMI" class="btn btn-primary">Calculate BMI</button><br><br>
+    <p v-if="numBMI !== null" class="lead">Computed BMI is: {{ numBMI.toFixed(2) }}</p>
+    <p v-if="numBMI !== null && bmiCategory !== ''" class="lead">BMI Category: {{ bmiCategory }}</p>
+  </div>
+
+
+  <script src="../framework/js/vue.js"></script>
+  <script src="compute.js"></script>
+</body>
+</html>

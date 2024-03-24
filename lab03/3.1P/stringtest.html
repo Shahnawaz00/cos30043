@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String Test</title>
+  <script src="../framework/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>String Test</h1>
+        <label for="name">Please enter your name: </label><input name="name" type="text" v-model="strName">
+        <p v-show="strName.toLowerCase() == 'shah'">Awesome name!</p>
+        <p v-show="strName != '' && strName != 'shah'">{{ strName }} is not my name</p>
+    </div>
+    <script>
+      const { createApp, ref } = Vue
+    
+      createApp({
+        setup() {
+          const strName = ref('')
+          return {
+            strName
+          }
+        }
+      }).mount('#app')
+    </script>
+
+</body>
+</html>

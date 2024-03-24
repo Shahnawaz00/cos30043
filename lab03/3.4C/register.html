@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form Web App</title>
+  <link rel="stylesheet" href="../framework/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="app" class="container">
+    <h1>Registration Form</h1>
+    <form @submit.prevent="submitForm">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" v-model="username" id="username" name="username" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" v-model="password" id="password" name="password" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" v-model="confirmPassword" id="confirmPassword" name="confirmPassword" class="form-control">
+        <p v-show="password !== confirmPassword" class="text-danger">Passwords do not match!</p>
+      </div>
+      <div class="form-group">
+        <label>Mobile Operating System:</label><br>
+        <div class="form-check form-check-inline" v-for="(os, index) in mobileOS" :key="index">
+          <input class="form-check-input" type="radio" v-model="selectedOS" :value="os" name="os">
+          <label class="form-check-label">{{ os }}</label>
+        </div>
+      </div>
+      <div class="form-group" v-if="selectedOS !== ''">
+        <label for="phoneModel">Phone Model:</label>
+        <select v-model="selectedPhoneModel" id="phoneModel" name="phoneModel" class="form-control">
+            <option v-for="phone in filteredPhones" :value="phone.model">{{ phone.model }}</option>
+          </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <hr>
+    <!-- shown even if not submitted -->
+    <div>
+      <h2>Summary:</h2>
+      <p>Username: {{ username }}</p>
+      <p>Mobile OS: {{ selectedOS }}</p>
+      <p>Phone Model: {{ selectedPhoneModel }}</p>
+    </div>
+  </div>
+
+
+  <script src="../framework/js/vue.js"></script>
+  <script src="register.js"></script>
+</body>
+</html>
