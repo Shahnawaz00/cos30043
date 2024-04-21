@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="app" class="container mt-5">
+  <form @submit.prevent="submitForm" ref="myForm" method="POST">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input name="firstName" type="text" class="form-control" id="firstName" v-model="firstName">
+      <small class="text-danger" v-if="errors.firstName">{{ errors.firstName }}</small>
+    </div>
+
+    <!-- Last Name -->
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input name="lastName" type="text" class="form-control" id="lastName" v-model="lastName">
+      <small class="text-danger" v-if="errors.lastName">{{ errors.lastName }}</small>
+    </div>
+
+    <!-- User Name -->
+    <div class="form-group">
+      <label for="userName">User Name</label>
+      <input name="userName" type="text" class="form-control" id="userName" v-model="userName">
+      <small class="text-danger" v-if="errors.userName">{{ errors.userName }}</small>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input name="password" type="password" class="form-control" id="password" v-model="password">
+      <small class="text-danger" v-if="errors.password">{{ errors.password }}</small>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input name="passwordconfirm" type="password" class="form-control" id="confirmPassword" v-model="confirmPassword">
+      <small class="text-danger" v-if="errors.confirmPassword">{{ errors.confirmPassword }}</small>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input name="email" type="text" class="form-control" id="email" v-model="email">
+      <small class="text-danger" v-if="errors.email">{{ errors.email }}</small>
+    </div>
+
+    <!-- Street Address -->
+    <div class="form-group">
+      <label for="streetAddress">Street Address</label>
+      <input name="address" type="text" class="form-control" id="streetAddress" v-model="streetAddress">
+    </div>
+
+    <!-- Suburb -->
+    <div class="form-group">
+      <label for="suburb">Suburb</label>
+      <input name="suburb" type="text" class="form-control" id="suburb" v-model="suburb">
+    </div>
+
+    <!-- Postcode -->
+    <div class="form-group">
+      <label for="postcode">Postcode</label>
+      <input name="postcode" type="number" class="form-control" id="postcode" v-model="postcode">
+      <small class="text-danger" v-if="errors.postcode">{{ errors.postcode }}</small>
+    </div>
+
+    <!-- Mobile Number -->
+    <div class="form-group">
+      <label for="mobileNumber">Mobile Number</label>
+      <input name="tel" type="tel" class="form-control" id="mobileNumber" v-model="mobileNumber">
+      <small class="text-danger" v-if="errors.mobileNumber">{{ errors.mobileNumber }}</small>
+    </div>
+
+    <!-- Terms and Conditions Button -->
+    <button type="button" class="btn btn-link" @click="showTerms = !showTerms">Show Terms and Conditions</button>
+
+    <!-- Terms and Conditions Text -->
+    <p v-if="showTerms" class="mb-4">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="appregistration2.js"></script>
+</body>
+</html>
